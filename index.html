@@ -53,7 +53,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="icon" type="image/png" href="images/favicon.png" />
   </head>
-  <body>
+  <body onload="getBalance()">
     <div class="section hero">
       <div class="container">
         <div class="row">
@@ -124,5 +124,25 @@
         </div>
       </div>
     </div>
+    <footer>
+      <p id="balance"></p>
+    </footer>
+    <script type="text/javascript">
+      const getBalance = () => {
+        let balance = 0;
+        fetch("http://p2t.ddns.net:3007/api/v1/wallet", {
+          headers: {
+            "X-Api-Key": "86037b15e78a47abbbe6f0f5342783d9",
+          },
+        })
+          .then((res) => res.json())
+          .then((bal) => {
+            document.getElementById(
+              "balance"
+            ).innerHTML = `Balanço: ${Math.round(bal.balance / 1000)} satoshis`;
+          })
+          .catch((err) => console.console.error(err));
+      };
+    </script>
   </body>
 </html>

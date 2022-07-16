@@ -1,8 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   font-family: "Montserrat", sans-serif;
+  min-height: 100vh;
+}
+
+body {
+  height: 100%;
+  margin: 0;
 }
 
 /* Sections
@@ -48,6 +58,18 @@ body {
 .half-width {
   width: 50%;
   max-width: 300px;
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  background: #c9c9c9;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
 }
 
 /* Bigger than 550 */
